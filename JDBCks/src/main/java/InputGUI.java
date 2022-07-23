@@ -39,7 +39,7 @@ public class InputGUI extends JFrame implements ActionListener {
 	label1.setIcon(image2);
 	label1.setHorizontalTextPosition(JLabel.CENTER);
 	label1.setVerticalTextPosition(JLabel.TOP);
-    label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
+	label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
 	label1.setForeground(new Color (255, 0, 0)); 
 	label1.setBackground(Color.blue);            
 	label1.setOpaque(true);	
