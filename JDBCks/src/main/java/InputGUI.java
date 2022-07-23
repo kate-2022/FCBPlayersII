@@ -16,7 +16,6 @@ import javax.swing.border.Border;
 public class InputGUI extends JFrame implements ActionListener {
 	
 	JButton button1;
-	JLabel label2;
 	
   InputGUI(){
 	
