@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
+import java.awt.LayoutManager;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -21,10 +22,17 @@ public class InputGUI extends JFrame implements ActionListener {
 	
     Border border = BorderFactory.createLineBorder(Color.blue);
     	
-    JPanel mainPanel = new JPanel();
-    mainPanel.setBackground(Color.red);
-    mainPanel.setBounds(50,50,400,400);
- //   mainPanel.setLayout(new BorderLayout());
+    JPanel panel1 = new JPanel();
+    panel1.setBackground(Color.red);
+    panel1.setBounds(0,0,100,50);
+    
+    JPanel panel2 = new JPanel();
+    panel2.setBackground(Color.red);
+    panel2.setBounds(0,0,100,50);
+    
+    JPanel panel3 = new JPanel();
+    panel3.setBackground(Color.red);
+    panel3.setBounds(0,0,100,50);
     
 	JLabel label1 = new JLabel();
 	label1.setText("FCB Players 2022");
@@ -33,7 +41,7 @@ public class InputGUI extends JFrame implements ActionListener {
 	label1.setIcon(image2);
 	label1.setHorizontalTextPosition(JLabel.CENTER);
 	label1.setVerticalTextPosition(JLabel.TOP);
-    label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
+	label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
 	label1.setForeground(new Color (255, 0, 0)); 
 	label1.setBackground(Color.blue);            
 	label1.setOpaque(true);	
@@ -56,17 +64,19 @@ public class InputGUI extends JFrame implements ActionListener {
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(450,350);
-	// startFrame.setLayout(null);          // Achtung, "null" unterdrückt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
+	this.setLayout(new BorderLayout());        // Achtung, "null" unterdrÃ¼ckt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
 	                                        // Default-Layout-Manager: Border-Layout-Manager
-	this.setResizable(false);	
+	this.setResizable(true);	
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
 		
-    this.add(mainPanel);
-    mainPanel.add(label1);
-    mainPanel.add(button1);
+   	 this.add(panel1, BorderLayout.NORTH);
+   	 this.add(panel2, BorderLayout.CENTER);
+   	 this.add(panel3, BorderLayout.SOUTH);
+    	panel2.add(label1);
+  	  panel3.add(button1);
 	this.setVisible(true);
-	// startFrame.pack();                 // justiert alle Komponenten entsprechend d. Grösse des Fensters 
+	// this.pack();               // justiert alle Komponenten entsprechend d. GrÃ¶sse des Fensters 
 	                                      // pack() immer zum Schluss einsetzen!
 	
 	}
