@@ -18,21 +18,20 @@ public class InputGUI extends JFrame implements ActionListener {
 	JButton button1;
 	JLabel label2;
 	
-    InputGUI(){
+  InputGUI(){
 	
     Border border = BorderFactory.createLineBorder(Color.blue);
     	
     JPanel panel1 = new JPanel();
     panel1.setBackground(Color.red);
-    panel1.setBounds(0,0,100,50);
-    
+    panel1.setPreferredSize(new Dimension(300, 20));
     JPanel panel2 = new JPanel();
     panel2.setBackground(Color.red);
-    panel2.setBounds(0,0,100,50);
+    panel2.setPreferredSize(new Dimension(300, 300));
     
     JPanel panel3 = new JPanel();
     panel3.setBackground(Color.red);
-    panel3.setBounds(0,0,100,50);
+    panel3.setPreferredSize(new Dimension(300, 50));
     
 	JLabel label1 = new JLabel();
 	label1.setText("FCB Players 2022");
@@ -41,7 +40,7 @@ public class InputGUI extends JFrame implements ActionListener {
 	label1.setIcon(image2);
 	label1.setHorizontalTextPosition(JLabel.CENTER);
 	label1.setVerticalTextPosition(JLabel.TOP);
-	label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
+    label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
 	label1.setForeground(new Color (255, 0, 0)); 
 	label1.setBackground(Color.blue);            
 	label1.setOpaque(true);	
@@ -70,11 +69,11 @@ public class InputGUI extends JFrame implements ActionListener {
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
 		
-   	 this.add(panel1, BorderLayout.NORTH);
-   	 this.add(panel2, BorderLayout.CENTER);
-   	 this.add(panel3, BorderLayout.SOUTH);
-    	panel2.add(label1);
-  	  panel3.add(button1);
+    this.add(panel1, BorderLayout.NORTH);
+    this.add(panel2, BorderLayout.CENTER);
+    this.add(panel3, BorderLayout.SOUTH);
+    panel2.add(label1);
+    panel3.add(button1);
 	this.setVisible(true);
 	// this.pack();               // justiert alle Komponenten entsprechend d. Grösse des Fensters 
 	                                      // pack() immer zum Schluss einsetzen!
