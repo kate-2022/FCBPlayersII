@@ -28,9 +28,7 @@ public class JDBC {
 		
 		String url = "jdbc:mysql://localhost:3306/fcbayernplayers";
 		String uname  = "root";
-		String pass = "1234";
-		
-		InputGUI mainWindow = new InputGUI();
+		String pass = "1234";	
 		
 	//	String query = "select * from players";
 	//	String query = "insert into players values ('Goretzka', 'Leon', 8)";
@@ -70,6 +68,5 @@ public class JDBC {
 	}
 
 }
-
 
 
