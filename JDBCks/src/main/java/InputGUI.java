@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -17,13 +18,14 @@ public class InputGUI extends JFrame implements ActionListener {
 	
 	JButton button1;
 	
-  InputGUI(){
+    InputGUI(){
 	
     Border border = BorderFactory.createLineBorder(Color.blue);
     	
     JPanel panel1 = new JPanel();
     panel1.setBackground(Color.red);
-    panel1.setPreferredSize(new Dimension(300, 20));
+    panel1.setPreferredSize(new Dimension(300, 15));
+    
     JPanel panel2 = new JPanel();
     panel2.setBackground(Color.red);
     panel2.setPreferredSize(new Dimension(300, 300));
@@ -39,7 +41,7 @@ public class InputGUI extends JFrame implements ActionListener {
 	label1.setIcon(image2);
 	label1.setHorizontalTextPosition(JLabel.CENTER);
 	label1.setVerticalTextPosition(JLabel.TOP);
-	label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
+    label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
 	label1.setForeground(new Color (255, 0, 0)); 
 	label1.setBackground(Color.blue);            
 	label1.setOpaque(true);	
@@ -83,7 +85,7 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getSource()== button1) {
 		System.out.println("FCB forever");
 		try {
-			NewWindow fcbList = new NewWindow();
+			new NewWindow();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -93,4 +95,5 @@ public void actionPerformed(ActionEvent e) {
 	}
 	
 }
+
 
