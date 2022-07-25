@@ -56,6 +56,7 @@ public class NewWindow extends JFrame implements ActionListener{
 		button10.setForeground(new Color(255,0,0));
 		button10.setFont(new Font("MV Boli",Font.BOLD, 20));
 		button10.setFocusable(false);
+		button10.addActionListener(this);
 		
 		panel10.add(label2);   
 
@@ -76,15 +77,14 @@ public class NewWindow extends JFrame implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e) {		
+		if (e.getSource()== button10) 
+			System.out.println("Database entry works :) ");
+			try {
+				new JDBC();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 		
-		if (e.getSource()== button10)
-		try {
-			JDBC con = new JDBC();
-		} catch (Exception e1) {
-			e1.printStackTrace();
 		}
-		
 	}
-}
-
