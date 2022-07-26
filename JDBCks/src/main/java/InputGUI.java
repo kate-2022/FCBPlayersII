@@ -82,18 +82,20 @@ public class InputGUI extends JFrame implements ActionListener {
 	}
 
 public void actionPerformed(ActionEvent e) {
-	if(e.getSource()== button1) {
-		System.out.println("FCB forever");
+	if(e.getSource()== button1) 
 		try {
+			System.out.println("FCB forever");
 			new NewWindow();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		
-	}
+	 }
 		
 	}
 	
-}
+
+
+
 
 
