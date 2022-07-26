@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import javax.swing.JTextField;
+
 /*Java Database Connectivity
 *
 * 1. import --> java.sql.*;
@@ -19,6 +21,11 @@ import java.sql.PreparedStatement;
 
 public class JDBC {
 	
+	String shirtNumber;
+	String lastName;
+	String firstName;
+	NewWindow wind1 = new NewWindow();
+	
 	JDBC()throws Exception{
 		this.jdbconnect();
 		
@@ -28,22 +35,27 @@ public class JDBC {
 		
 		String url = "jdbc:mysql://localhost:3306/fcbayernplayers";
 		String uname  = "root";
-		String pass = "1234";	
+		String pass = "1234";
+		
 		
 	//	String query = "select * from players";
 	//	String query = "insert into players values ('Goretzka', 'Leon', 8)";
-		int shirtNumber = 4;
-		String lastName = "de Ligt";
-		String firstName = "Matthijs";
+	  //	int shirtNumber = 4;
+	  //	String lastName = "de Ligt";
+	  //	String firstName = "Matthijs";
 	//  String query = "insert into players values (" + "'" + lastName + "',"+ "'" + firstName + "'," + shirtNumber +  " )";
 		String query = "insert into players values (?,?,?)";
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");                        // in detail: @ youtube "Class.forName" telusko
 		Connection con = DriverManager.getConnection(url, uname,pass);
 		PreparedStatement pst = con.prepareStatement(query);
+		
+	   //  String lastName = textField1.getText();
+	   //  String firsName = textField2.getText();
+	    
 		pst.setString(1,lastName);
 		pst.setString(2,firstName);
-		pst.setInt(3,shirtNumber);
+		pst.setString(3,shirtNumber);
 		
     //  Statement st = con.createStatement();   // use PreparedStatement instead for inserting/ changing of values!
 	//	ResultSet rs = st.executeQuery(query);  // DDL= data definition language: e.g. creating table, changing structure of db), 
@@ -67,6 +79,22 @@ public class JDBC {
 		con.close();
 	}
 
+	
+		
+
+	public void setShirtNumber(String shirtNumber) {
+		this.shirtNumber = shirtNumber;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
 }
+
 
 
