@@ -15,15 +15,31 @@ import javax.swing.JTextField;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
+import java.io.Reader;
+import java.math.BigDecimal;
+import java.net.URL;
+import java.sql.Array;
+import java.sql.Blob;
+import java.sql.Clob;
+import java.sql.Date;
+import java.sql.NClob;
+import java.sql.Ref;
+import java.sql.RowId;
+import java.sql.SQLException;
+import java.sql.SQLInput;
+import java.sql.SQLXML;
+import java.sql.Time;
+import java.sql.Timestamp;
 
-public class NewWindow extends JFrame implements ActionListener{
+public class NewWindow extends JFrame  implements ActionListener, SQLInput {
 
 	JDBC react;
 	JButton button10; 
 	JTextField textField1;
 	JTextField textField2;
 	JTextField textField3;
-	
+	 
 	NewWindow() {
 		
 		JPanel panel10 = new JPanel();
@@ -66,10 +82,24 @@ public class NewWindow extends JFrame implements ActionListener{
 		
 	    textField1 = new JTextField();
 		textField1.setPreferredSize(new Dimension(250, 40));
+		textField1.setFont(new Font("Consolas", Font.PLAIN, 25));
+		textField1.setForeground(Color.white);
+		textField1.setBackground(Color.blue);
+		textField1.setCaretColor(Color.white);	
+		
 		textField2 = new JTextField();
 		textField2.setPreferredSize(new Dimension(250, 40));
+		textField2.setFont(new Font("Consolas", Font.PLAIN, 25));
+		textField2.setForeground(Color.white);
+		textField2.setBackground(Color.blue);
+		textField2.setCaretColor(Color.white);	
+		
 		textField3 = new JTextField();
 		textField3.setPreferredSize(new Dimension(100, 40));
+		textField3.setFont(new Font("Consolas", Font.PLAIN, 25));
+		textField3.setForeground(Color.white);
+		textField3.setBackground(Color.blue);
+		textField3.setCaretColor(Color.white);	
 		
 		JButton button10 = new JButton("        Insert into list!        ");
 		button10.setBounds(100, 200, 250, 50);
@@ -107,25 +137,18 @@ public class NewWindow extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {		
 		
-		if (e.getSource()== (textField1)) {
-			 String lastName = textField1.getText();
-			react.setLastName(lastName); 
-		}
-		if (e.getSource()== (textField2)) {
-			 String firstName = textField2.getText();
-			react.setFirstName(firstName); 
-		}
-		if (e.getSource()== (textField3)) {
-			 String shirtNumber = textField3.getText();			 
-			 int i = Integer.parseInt(shirtNumber);
-			react.setShirtNumber(shirtNumber); 
-		}	
-		
-		
 		if (e.getSource()== button10) 
 		    System.out.println("FCB forever_II");
 			try {
+				 String lastName = textField1.getText();
+				//	react.setLastName(lastName); 
+				String firstName = textField2.getText();
+				//	react.setFirstName(firstName); 
+				String shirtNumber =  textField3.getText();		 
+				//	int i = Integer.parseInt(shirtNumber);			
+				//	react.setShirtNumber(i); 	
 				System.out.println("FCB forever III");
+				
 				 new JDBC();
 				 
 			} catch (Exception e1) {
@@ -133,5 +156,172 @@ public class NewWindow extends JFrame implements ActionListener{
 			}
 		
 		}
+	
+	
+	
+	@Override
+	public String readString() throws SQLException {
+
+		return null;
+	}
+
+	
+	@Override
+	public int readInt() throws SQLException {
+	
+		return 0;
+	}
+	
+
+	@Override
+	public boolean readBoolean() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public byte readByte() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public short readShort() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public long readLong() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float readFloat() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double readDouble() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public BigDecimal readBigDecimal() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public byte[] readBytes() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Date readDate() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Time readTime() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Timestamp readTimestamp() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reader readCharacterStream() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public InputStream readAsciiStream() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public InputStream readBinaryStream() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object readObject() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ref readRef() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Blob readBlob() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Clob readClob() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Array readArray() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean wasNull() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public URL readURL() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NClob readNClob() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String readNString() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SQLXML readSQLXML() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RowId readRowId() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	}
 
