@@ -21,9 +21,11 @@ import javax.swing.JTextField;
 
 public class JDBC {
 	
-	String shirtNumber;
-	String lastName;
-	String firstName;
+	/*String shirtNumber = "";
+	String lastName = "";
+	String firstName = "";*/
+	
+	
 	NewWindow wind1 = new NewWindow();
 	
 	JDBC()throws Exception{
@@ -43,6 +45,12 @@ public class JDBC {
 	  //	int shirtNumber = 4;
 	  //	String lastName = "de Ligt";
 	  //	String firstName = "Matthijs";
+		
+		String shirtNumber = wind1.getShirtNumbernW();
+		String lastName = wind1.getLastNameNW();
+		String firstName = wind1.getFirstNameNW();
+			
+		
 	//  String query = "insert into players values (" + "'" + lastName + "',"+ "'" + firstName + "'," + shirtNumber +  " )";
 		String query = "insert into players values (?,?,?)";
 		
@@ -77,21 +85,6 @@ public class JDBC {
 		
 		pst.close();
 		con.close();
-	}
-
-	
-		
-
-	public void setShirtNumber(String shirtNumber) {
-		this.shirtNumber = shirtNumber;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
 	}
 
 }
