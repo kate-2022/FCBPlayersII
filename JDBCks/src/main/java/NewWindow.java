@@ -15,30 +15,17 @@ import javax.swing.JTextField;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.InputStream;
-import java.io.Reader;
-import java.math.BigDecimal;
-import java.net.URL;
-import java.sql.Array;
-import java.sql.Blob;
-import java.sql.Clob;
-import java.sql.Date;
-import java.sql.NClob;
-import java.sql.Ref;
-import java.sql.RowId;
-import java.sql.SQLException;
-import java.sql.SQLInput;
-import java.sql.SQLXML;
-import java.sql.Time;
-import java.sql.Timestamp;
 
-public class NewWindow extends JFrame  implements ActionListener, SQLInput {
+public class NewWindow extends JFrame  implements ActionListener {   
 
 	JDBC react;
 	JButton button10; 
 	JTextField textField1;
 	JTextField textField2;
 	JTextField textField3;
+	String lastNameNW;
+	String firstNameNW;
+	String shirtNumbernW;
 	 
 	NewWindow() {
 		
@@ -140,11 +127,11 @@ public class NewWindow extends JFrame  implements ActionListener, SQLInput {
 		if (e.getSource()== button10) 
 		    System.out.println("FCB forever_II");
 			try {
-				 String lastName = textField1.getText();
+				 lastNameNW = textField1.getText();
 				//	react.setLastName(lastName); 
-				String firstName = textField2.getText();
+				 firstNameNW = textField2.getText();
 				//	react.setFirstName(firstName); 
-				String shirtNumber =  textField3.getText();		 
+				shirtNumbernW =  textField3.getText();		 
 				//	int i = Integer.parseInt(shirtNumber);			
 				//	react.setShirtNumber(i); 	
 				System.out.println("FCB forever III");
@@ -158,170 +145,16 @@ public class NewWindow extends JFrame  implements ActionListener, SQLInput {
 		}
 	
 	
-	
-	@Override
-	public String readString() throws SQLException {
-
-		return null;
+	public String getLastNameNW() {
+		return lastNameNW;
 	}
 
-	
-	@Override
-	public int readInt() throws SQLException {
-	
-		return 0;
+	public String getFirstNameNW() {
+		return firstNameNW;
+	}
+
+	public String getShirtNumbernW() {
+		return shirtNumbernW;
 	}
 	
-
-	@Override
-	public boolean readBoolean() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public byte readByte() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public short readShort() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public long readLong() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public float readFloat() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double readDouble() throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public BigDecimal readBigDecimal() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public byte[] readBytes() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Date readDate() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Time readTime() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Timestamp readTimestamp() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Reader readCharacterStream() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public InputStream readAsciiStream() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public InputStream readBinaryStream() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object readObject() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Ref readRef() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Blob readBlob() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Clob readClob() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Array readArray() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean wasNull() throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public URL readURL() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public NClob readNClob() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String readNString() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public SQLXML readSQLXML() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RowId readRowId() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	}
-
+}
