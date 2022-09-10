@@ -5,30 +5,20 @@ import java.sql.PreparedStatement;
 
 import javax.swing.JTextField;
 
-/*Java Database Connectivity
-*
-* 1. import --> java.sql.*;
-* 2. load and register the driver --> com.mysql.cj.jdbc.Driver
-* 3. create connection
-* 4. create a statement
-* 5. execute the query
-* 6. process the results
-* 7. close
-*/
-
-//DAO = data access object
-
-
 public class JDBC {
 	
-	/*String shirtNumber = "";
+	String shirtNumber = "";
 	String lastName = "";
-	String firstName = "";*/
+	String firstName = "";
+    NewWindow wind1; // = new NewWindow();
 	
-	
-	NewWindow wind1 = new NewWindow();
-	
-	JDBC()throws Exception{
+	JDBC(String shirtNumber,String lastName, String firstName)throws Exception{		
+		
+		this.shirtNumber = shirtNumber;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		
+		new InputGUI();
 		this.jdbconnect();
 		
 	}
@@ -45,25 +35,26 @@ public class JDBC {
 	  //	int shirtNumber = 4;
 	  //	String lastName = "de Ligt";
 	  //	String firstName = "Matthijs";
+	
 		
-		String shirtNumber = wind1.getShirtNumbernW();
-		String lastName = wind1.getLastNameNW();
-		String firstName = wind1.getFirstNameNW();
+		shirtNumber = wind1.getShirtNumberNW();
+		lastName = wind1.getLastNameNW();
+		firstName = wind1.getFirstNameNW();
 			
 		
 	//  String query = "insert into players values (" + "'" + lastName + "',"+ "'" + firstName + "'," + shirtNumber +  " )";
-		String query = "insert into players values (?,?,?)";
-		
+		String query = "insert into players values (?,?,?)"; 
 		Class.forName("com.mysql.cj.jdbc.Driver");                        // in detail: @ youtube "Class.forName" telusko
 		Connection con = DriverManager.getConnection(url, uname,pass);
 		PreparedStatement pst = con.prepareStatement(query);
 		
 	   //  String lastName = textField1.getText();
 	   //  String firsName = textField2.getText();
-	    
-		pst.setString(1,lastName);
+	
+		pst.setString(1,lastName);  // index number is  referring to number of question mark (1 = first ? in String variable query)
 		pst.setString(2,firstName);
 		pst.setString(3,shirtNumber);
+	
 		
     //  Statement st = con.createStatement();   // use PreparedStatement instead for inserting/ changing of values!
 	//	ResultSet rs = st.executeQuery(query);  // DDL= data definition language: e.g. creating table, changing structure of db), 
@@ -72,6 +63,7 @@ public class JDBC {
 		
 		
 		int count = pst.executeUpdate();    // count = number of rows that are effected                                     
+	//	ResultSet rs = pst.executeQuery(query); 
 		
 		System.out.println(count + " row/s affected");
 		
@@ -85,6 +77,18 @@ public class JDBC {
 		
 		pst.close();
 		con.close();
+	}
+	
+	public void setShirtNumber(String shirtNumber) {
+		this.shirtNumber = shirtNumber;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 }
