@@ -32,7 +32,7 @@ public class InputGUI extends JFrame implements ActionListener {
     
     JPanel panel3 = new JPanel();
     panel3.setBackground(Color.red);
-    panel3.setPreferredSize(new Dimension(300, 50));
+    panel3.setPreferredSize(new Dimension(300, 300));
     
 	JLabel label1 = new JLabel();
 	label1.setText("FCB Players 2022");
@@ -58,12 +58,14 @@ public class InputGUI extends JFrame implements ActionListener {
 	button1.setFocusable(false);
 	button1.setFont(new Font("MV Boli",Font.BOLD, 20));
 	button1.setBorder(BorderFactory.createEtchedBorder());
+	button1.setVerticalAlignment(JButton.TOP);
+	button1.setHorizontalAlignment(JButton.CENTER);
 	button1.addActionListener(this);
 	// button1.addActionListener(e -> System.out.println("FCB forever"));   // lambda-expression replacing 
                                                                          // actionPerformed(ActionEvent e)
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setSize(450,350);
+	this.setSize(750,700);
 	this.setLayout(new BorderLayout());        // Achtung, "null" unterdrückt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
 	                                        // Default-Layout-Manager: Border-Layout-Manager
 	this.setResizable(true);	
@@ -94,8 +96,5 @@ public void actionPerformed(ActionEvent e) {
 		
 	}
 	
-
-
-
 
 
