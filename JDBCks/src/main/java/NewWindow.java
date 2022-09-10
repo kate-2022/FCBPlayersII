@@ -16,16 +16,15 @@ import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class NewWindow extends JFrame  implements ActionListener {   
+public class NewWindow extends JFrame  implements ActionListener{   
 
-	JDBC react;
 	JButton button10; 
 	JTextField textField1;
 	JTextField textField2;
 	JTextField textField3;
 	String lastNameNW;
 	String firstNameNW;
-	String shirtNumbernW;
+	String shirtNumberNW;
 	 
 	NewWindow() {
 		
@@ -109,7 +108,7 @@ public class NewWindow extends JFrame  implements ActionListener {
 		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(750,750);
+		this.setSize(750,700);
 		this.setBackground(new Color(255,0,0));
 		this.setLayout(new BorderLayout());  
 		this.add(panel10, BorderLayout.NORTH);
@@ -123,20 +122,22 @@ public class NewWindow extends JFrame  implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {		
+
 		
 		if (e.getSource()== button10) 
 		    System.out.println("FCB forever_II");
 			try {
+				JDBC react= new JDBC(shirtNumberNW, lastNameNW, firstNameNW);
 				 lastNameNW = textField1.getText();
-				//	react.setLastName(lastName); 
+				react.setLastName(lastNameNW); 
 				 firstNameNW = textField2.getText();
-				//	react.setFirstName(firstName); 
-				shirtNumbernW =  textField3.getText();		 
+				react.setFirstName(firstNameNW); 
+				shirtNumberNW =  textField3.getText();		 
 				//	int i = Integer.parseInt(shirtNumber);			
-				//	react.setShirtNumber(i); 	
+				react.setShirtNumber(shirtNumberNW); 	
 				System.out.println("FCB forever III");
 				
-				 new JDBC();
+			//	 new JDBC();
 				 
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -153,8 +154,8 @@ public class NewWindow extends JFrame  implements ActionListener {
 		return firstNameNW;
 	}
 
-	public String getShirtNumbernW() {
-		return shirtNumbernW;
+	public String getShirtNumberNW() {
+		return shirtNumberNW;
 	}
 	
 }
