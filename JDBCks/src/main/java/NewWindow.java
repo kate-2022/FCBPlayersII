@@ -1,9 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -18,6 +16,7 @@ import java.awt.event.ActionListener;
 
 public class NewWindow extends JFrame  implements ActionListener{   
 
+	private static final long serialVersionUID = 1L;
 	JButton button10; 
 	JTextField textField1;
 	JTextField textField2;
@@ -30,15 +29,11 @@ public class NewWindow extends JFrame  implements ActionListener{
 		
 		JPanel panel10 = new JPanel();
 		panel10.setBackground(new Color(255,0,0));
-		panel10.setPreferredSize(new Dimension(300, 200));
+		panel10.setPreferredSize(new Dimension(300, 100));
 		
 		JPanel panel11 = new JPanel();
 		panel11.setBackground(new Color(255,0,0));
 		panel11.setPreferredSize(new Dimension(300, 250));
-		
-		JPanel panel12 = new JPanel();
-		panel12.setBackground(new Color(255,0,0));
-		panel12.setPreferredSize(new Dimension(300, 250)); 
 		
 		JLabel label2 = new JLabel("Players 2022/2023");
 		label2.setForeground(Color.red);
@@ -108,12 +103,12 @@ public class NewWindow extends JFrame  implements ActionListener{
 		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(750,700);
+		this.setSize(750,400);
 		this.setBackground(new Color(255,0,0));
 		this.setLayout(new BorderLayout());  
 		this.add(panel10, BorderLayout.NORTH);
 		this.add(panel11, BorderLayout.CENTER);
-		this.add(panel12, BorderLayout.SOUTH);
+		// this.add(panel12, BorderLayout.SOUTH);
 		
 		this.setVisible(true);
 		
