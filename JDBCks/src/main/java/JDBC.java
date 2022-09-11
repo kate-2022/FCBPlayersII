@@ -3,16 +3,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-import javax.swing.JTextField;
 
 public class JDBC {
 	
-	String shirtNumber = "";
-	String lastName = "";
-	String firstName = "";
-    NewWindow wind1; // = new NewWindow();
+	String shirtNumber;   // = "";
+	String lastName;      // = "";
+	String firstName;     // = "";
+    NewWindow wind1 = new NewWindow();
+    
 	
 	JDBC(String shirtNumber,String lastName, String firstName)throws Exception{		
+		
 		
 		this.shirtNumber = shirtNumber;
 		this.lastName = lastName;
@@ -23,19 +24,11 @@ public class JDBC {
 		
 	}
 
-	public void jdbconnect () throws Exception{
+	public void jdbconnect ()  throws Exception{
 		
 		String url = "jdbc:mysql://localhost:3306/fcbayernplayers";
 		String uname  = "root";
 		String pass = "1234";
-		
-		
-	//	String query = "select * from players";
-	//	String query = "insert into players values ('Goretzka', 'Leon', 8)";
-	  //	int shirtNumber = 4;
-	  //	String lastName = "de Ligt";
-	  //	String firstName = "Matthijs";
-	
 		
 		shirtNumber = wind1.getShirtNumberNW();
 		lastName = wind1.getLastNameNW();
@@ -55,28 +48,16 @@ public class JDBC {
 		pst.setString(2,firstName);
 		pst.setString(3,shirtNumber);
 	
-		
-    //  Statement st = con.createStatement();   // use PreparedStatement instead for inserting/ changing of values!
-	//	ResultSet rs = st.executeQuery(query);  // DDL= data definition language: e.g. creating table, changing structure of db), 
-		                                        // DML= data modifying language: changing/deleting/updating a value/row of a table, inserting a new value
-		                                        // DQL= data query language: fetch data from data base xy.executeQuery(query)
-		
-		
+				
 		int count = pst.executeUpdate();    // count = number of rows that are effected                                     
-	//	ResultSet rs = pst.executeQuery(query); 
 		
 		System.out.println(count + " row/s affected");
 		
-	/*	String userData ="";
-		
-		while(rs.next()) {                                               // rs.next() is responsible to take the cursor to the next element (next row)!
-	//	String name = rs.getString("shirtNumber");                                // and rs.next() gives back a boolean value for if there is a next row or not
-		userData = rs.getString(1) + ", " + rs.getString(2)+ " : " + rs.getInt(3); 
-		System.out.println(userData);
-		}*/
 		
 		pst.close();
 		con.close();
+
+
 	}
 	
 	public void setShirtNumber(String shirtNumber) {
@@ -92,6 +73,9 @@ public class JDBC {
 	}
 
 }
+
+
+
 
 
 
