@@ -28,11 +28,11 @@ public class InputGUI extends JFrame implements ActionListener {
     
     JPanel panel2 = new JPanel();
     panel2.setBackground(Color.red);
-    panel2.setPreferredSize(new Dimension(300, 300));
+    panel2.setPreferredSize(new Dimension(300, 150));
     
     JPanel panel3 = new JPanel();
     panel3.setBackground(Color.red);
-    panel3.setPreferredSize(new Dimension(300, 300));
+    panel3.setPreferredSize(new Dimension(300, 150));
     
 	JLabel label1 = new JLabel();
 	label1.setText("FCB Players 2022");
@@ -65,9 +65,8 @@ public class InputGUI extends JFrame implements ActionListener {
                                                                          // actionPerformed(ActionEvent e)
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	this.setSize(750,700);
-	this.setLayout(new BorderLayout());        // Achtung, "null" unterdrückt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
-	                                        // Default-Layout-Manager: Border-Layout-Manager
+	this.setSize(750,400);
+	this.setLayout(new BorderLayout());       
 	this.setResizable(true);	
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
@@ -78,8 +77,7 @@ public class InputGUI extends JFrame implements ActionListener {
     panel2.add(label1);
     panel3.add(button1);
 	this.setVisible(true);
-	// this.pack();               // justiert alle Komponenten entsprechend d. Grösse des Fensters 
-	                                      // pack() immer zum Schluss einsetzen!
+
 	
 	}
 
@@ -95,6 +93,3 @@ public void actionPerformed(ActionEvent e) {
 	 }
 		
 	}
-	
-
-
