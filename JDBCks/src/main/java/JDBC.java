@@ -48,6 +48,8 @@ public class JDBC {
 		System.out.println(userData);
 		}*/
 		
+		new GetList();
+		
 		pst.close();
 		con.close();
 		
