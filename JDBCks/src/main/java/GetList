@@ -1,0 +1,39 @@
+import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class GetList {
+	
+	GetList ()throws Exception{
+		this.jdbconnectRead ();
+	}
+	
+	
+	public void jdbconnectRead ()  throws Exception{
+		
+		String url = "jdbc:mysql://localhost:3306/fcbayernplayers";
+		String uname  = "root";
+		String pass = "1234";
+		
+		String query2 = "select * from players order by shirtNumber ASC";
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");                      
+		Connection con2 = DriverManager.getConnection(url, uname,pass);
+	
+		Statement st = con2.createStatement();   
+		ResultSet rs = st.executeQuery(query2);
+		String userData ="";
+		
+		while(rs.next()) {                                               // rs.next() is responsible to take the cursor to the next element (next row)!
+                                                                    // and rs.next() gives back a boolean value for if there is a next row or not
+		userData = rs.getString(1) + ", " + rs.getString(2)+ " : " + rs.getInt(3); 
+		System.out.println(userData);
+		
+		}
+		
+		st.close();
+		con2.close();
+		
+	}
+
+}
