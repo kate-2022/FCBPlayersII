@@ -59,8 +59,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		label5.setForeground(Color.black);
 		label5.setFont(new Font("MV Boli",Font.BOLD, 20));
 		label5.setBounds(50, 150, 350, 30);
-		
-		
+				
 	    textField1 = new JTextField();
 		textField1.setPreferredSize(new Dimension(250, 40));
 		textField1.setFont(new Font("Consolas", Font.PLAIN, 25));
@@ -92,7 +91,6 @@ public class NewWindow extends JFrame  implements ActionListener{
 		button10.addActionListener(this);
 		
 		panel10.add(label2);   
-		//panel11.setLayout(new GridLayout(4,2));
 		panel11.add(label3);
 		panel11.add(textField1);		
 		panel11.add(label4); 
@@ -107,9 +105,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		this.setBackground(new Color(255,0,0));
 		this.setLayout(new BorderLayout());  
 		this.add(panel10, BorderLayout.NORTH);
-		this.add(panel11, BorderLayout.CENTER);
-		// this.add(panel12, BorderLayout.SOUTH);
-		
+		this.add(panel11, BorderLayout.CENTER);		
 		this.setVisible(true);
 		
 		
@@ -122,35 +118,25 @@ public class NewWindow extends JFrame  implements ActionListener{
 		if (e.getSource()== button10) 
 		    System.out.println("FCB forever_II");
 			try {
-				JDBC react= new JDBC(shirtNumberNW, lastNameNW, firstNameNW);
+			
 				 lastNameNW = textField1.getText();
-				react.setLastName(lastNameNW); 
+				System.out.println(lastNameNW);
 				 firstNameNW = textField2.getText();
-				react.setFirstName(firstNameNW); 
+				System.out.println(firstNameNW);
 				shirtNumberNW =  textField3.getText();		 
 				//	int i = Integer.parseInt(shirtNumber);			
-				react.setShirtNumber(shirtNumberNW); 	
+				System.out.println(shirtNumberNW);
 				System.out.println("FCB forever III");
 				
-			//	 new JDBC();
-				 
+				JDBC react = new JDBC(/*shirtNumberNW,lastNameNW,firstNameNW*/);
+				react.setLastName(lastNameNW); 
+				react.setFirstName(firstNameNW);  
+				react.setShirtNumber(shirtNumberNW); 
+				react.jdbconnect();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
 		
 		}
-	
-	
-	public String getLastNameNW() {
-		return lastNameNW;
-	}
-
-	public String getFirstNameNW() {
-		return firstNameNW;
-	}
-
-	public String getShirtNumberNW() {
-		return shirtNumberNW;
-	}
 	
 }
