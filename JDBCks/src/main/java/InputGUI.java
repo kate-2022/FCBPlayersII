@@ -39,11 +39,10 @@ public class InputGUI extends JFrame implements ActionListener {
 	JLabel label1 = new JLabel();
 	label1.setText("FCB Players 2022");
 	ImageIcon image2= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\FCB_ks._small.png");
-	// label1.setBounds(50, 50, 450, 450);
 	label1.setIcon(image2);
 	label1.setHorizontalTextPosition(JLabel.CENTER);
 	label1.setVerticalTextPosition(JLabel.TOP);
-    label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
+        label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
 	label1.setForeground(new Color (255, 0, 0)); 
 	label1.setBackground(Color.blue);            
 	label1.setOpaque(true);	
@@ -63,25 +62,22 @@ public class InputGUI extends JFrame implements ActionListener {
 	button1.setVerticalAlignment(JButton.TOP);
 	button1.setHorizontalAlignment(JButton.CENTER);
 	button1.addActionListener(this);
-	// button1.addActionListener(e -> System.out.println("FCB forever"));   // lambda-expression replacing 
-                                                                         // actionPerformed(ActionEvent e)
+	
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(750,400);
-	this.setLayout(new BorderLayout());        // Achtung, "null" unterdrückt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
-	                                        // Default-Layout-Manager: Border-Layout-Manager
+	this.setLayout(new BorderLayout());        
 	this.setResizable(true);	
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
 		
-    this.add(panel1, BorderLayout.NORTH);
-    this.add(panel2, BorderLayout.CENTER);
-    this.add(panel3, BorderLayout.SOUTH);
-    panel2.add(label1);
-    panel3.add(button1);
+	this.add(panel1, BorderLayout.NORTH);
+        this.add(panel2, BorderLayout.CENTER);
+        this.add(panel3, BorderLayout.SOUTH);
+        panel2.add(label1);
+        panel3.add(button1);
 	this.setVisible(true);
-	// this.pack();               // justiert alle Komponenten entsprechend d. Grösse des Fensters 
-	                                      // pack() immer zum Schluss einsetzen!
+	
 	
 	}
 
