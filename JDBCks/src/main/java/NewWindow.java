@@ -40,9 +40,9 @@ public class NewWindow extends JFrame  implements ActionListener{
 		label2.setBackground(Color.blue);
 		label2.setOpaque(true);
 		label2.setFont(new Font("MV Boli",Font.BOLD, 30));
-		label2.setBounds(50, 30, 100, 40);
+		label2.setBounds(50, 30, 100, 200);
 		
-		ImageIcon image2= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\FCB_ks._small.png");
+		ImageIcon image2= new ImageIcon("C:\\\\Users\\\\Nutzer\\\\git\\\\LocalRepository\\\\PlayersJDBCks\\\\src\\\\main\\\\java\\\\FCB_ks._small.png");
 		label2.setIcon(image2);
 		
 		JLabel label3 = new JLabel("Please enter last name of player:       ");
@@ -101,7 +101,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(750,400);
+		this.setSize(750,450);
 		this.setBackground(new Color(255,0,0));
 		this.setLayout(new BorderLayout());  
 		this.add(panel10, BorderLayout.NORTH);
@@ -128,11 +128,12 @@ public class NewWindow extends JFrame  implements ActionListener{
 				System.out.println(shirtNumberNW);
 				System.out.println("FCB forever III");
 				
-				JDBC react = new JDBC(/*shirtNumberNW,lastNameNW,firstNameNW*/);
+				JDBC react = new JDBC();
 				react.setLastName(lastNameNW); 
 				react.setFirstName(firstNameNW);  
 				react.setShirtNumber(shirtNumberNW); 
 				react.jdbconnect();
+				
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
