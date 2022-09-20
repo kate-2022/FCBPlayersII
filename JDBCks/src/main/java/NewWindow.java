@@ -42,7 +42,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		label2.setFont(new Font("MV Boli",Font.BOLD, 30));
 		label2.setBounds(50, 30, 100, 100);
 		
-	    JLabel label20 = new JLabel();
+	        JLabel label20 = new JLabel();
 		ImageIcon image2= new ImageIcon("C:\\\\Users\\\\Nutzer\\\\git\\\\LocalRepository\\\\PlayersJDBCks\\\\src\\\\main\\\\java\\\\FCB_ks._small.png");
 		label20.setIcon(image2);
 		
@@ -61,7 +61,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		label5.setFont(new Font("MV Boli",Font.BOLD, 20));
 		label5.setBounds(50, 150, 350, 30);
 				
-	    textField1 = new JTextField();
+	        textField1 = new JTextField();
 		textField1.setPreferredSize(new Dimension(250, 40));
 		textField1.setFont(new Font("Consolas", Font.PLAIN, 25));
 		textField1.setForeground(Color.white);
@@ -123,12 +123,12 @@ public class NewWindow extends JFrame  implements ActionListener{
 			try {
 			
 				 lastNameNW = textField1.getText();
-				System.out.println(lastNameNW);
+				// System.out.println(lastNameNW);
 				 firstNameNW = textField2.getText();
-				System.out.println(firstNameNW);
+				// System.out.println(firstNameNW);
 				shirtNumberNW =  textField3.getText();		 
-				//	int i = Integer.parseInt(shirtNumber);			
-				System.out.println(shirtNumberNW);
+				// int i = Integer.parseInt(shirtNumber);			
+				// System.out.println(shirtNumberNW);
 				System.out.println("FCB forever III");
 				
 				JDBC react = new JDBC();
