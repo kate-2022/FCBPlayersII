@@ -29,7 +29,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		
 		JPanel panel10 = new JPanel();
 		panel10.setBackground(new Color(255,0,0));
-		panel10.setPreferredSize(new Dimension(300, 100));
+		panel10.setPreferredSize(new Dimension(300, 200));
 		
 		JPanel panel11 = new JPanel();
 		panel11.setBackground(new Color(255,0,0));
@@ -40,10 +40,11 @@ public class NewWindow extends JFrame  implements ActionListener{
 		label2.setBackground(Color.blue);
 		label2.setOpaque(true);
 		label2.setFont(new Font("MV Boli",Font.BOLD, 30));
-		label2.setBounds(50, 30, 100, 200);
+		label2.setBounds(50, 30, 100, 100);
 		
+	    JLabel label20 = new JLabel();
 		ImageIcon image2= new ImageIcon("C:\\\\Users\\\\Nutzer\\\\git\\\\LocalRepository\\\\PlayersJDBCks\\\\src\\\\main\\\\java\\\\FCB_ks._small.png");
-		label2.setIcon(image2);
+		label20.setIcon(image2);
 		
 		JLabel label3 = new JLabel("Please enter last name of player:       ");
 		label3.setForeground(Color.black);
@@ -90,6 +91,8 @@ public class NewWindow extends JFrame  implements ActionListener{
 		button10.setBorder(BorderFactory.createEtchedBorder());
 		button10.addActionListener(this);
 		
+		
+		panel10.add(label20);   
 		panel10.add(label2);   
 		panel11.add(label3);
 		panel11.add(textField1);		
