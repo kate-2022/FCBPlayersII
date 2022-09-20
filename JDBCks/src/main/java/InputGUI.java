@@ -63,14 +63,11 @@ public class InputGUI extends JFrame implements ActionListener {
 	button1.setVerticalAlignment(JButton.TOP);
 	button1.setHorizontalAlignment(JButton.CENTER);
 	button1.addActionListener(this);
-	// button1.addActionListener(e -> System.out.println("FCB forever"));   // lambda-expression replacing 
-                                                                         // actionPerformed(ActionEvent e)
+
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(750,450);
-	this.setLayout(new BorderLayout());        // Achtung, "null" unterdrückt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
-	                                        // Default-Layout-Manager: Border-Layout-Manager
-	this.setResizable(true);	
+	this.setLayout(new BorderLayout());       
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\git\\LocalRepository\\PlayersJDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
 		
@@ -80,8 +77,6 @@ public class InputGUI extends JFrame implements ActionListener {
     panel2.add(label1);
     panel3.add(button1);
 	this.setVisible(true);
-	// this.pack();               // justiert alle Komponenten entsprechend d. Grösse des Fensters 
-	                                      // pack() immer zum Schluss einsetzen!
 	
 	}
 
