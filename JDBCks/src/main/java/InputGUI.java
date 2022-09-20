@@ -16,6 +16,8 @@ import javax.swing.border.Border;
 
 public class InputGUI extends JFrame implements ActionListener {
 	
+	private static final long serialVersionUID = 1L;
+	
 	JButton button1;
 	
     InputGUI(){
@@ -66,7 +68,8 @@ public class InputGUI extends JFrame implements ActionListener {
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(750,400);
-	this.setLayout(new BorderLayout());       
+	this.setLayout(new BorderLayout());        // Achtung, "null" unterdrückt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
+	                                        // Default-Layout-Manager: Border-Layout-Manager
 	this.setResizable(true);	
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\Katrin\\Programmieren_ks\\eclipse_everything\\SpringMavenImplKs\\JDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
@@ -77,15 +80,16 @@ public class InputGUI extends JFrame implements ActionListener {
     panel2.add(label1);
     panel3.add(button1);
 	this.setVisible(true);
-
+	// this.pack();               // justiert alle Komponenten entsprechend d. Grösse des Fensters 
+	                                      // pack() immer zum Schluss einsetzen!
 	
 	}
 
 public void actionPerformed(ActionEvent e) {
 	if(e.getSource()== button1) 
 		try {
-			System.out.println("FCB forever");
 			new NewWindow();
+			System.out.println("FCB forever");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -93,3 +97,4 @@ public void actionPerformed(ActionEvent e) {
 	 }
 		
 	}
+	
