@@ -1,0 +1,126 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.AbstractButton;
+import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.io.Serializable;
+import java.util.Vector;
+import java.util.Enumeration;
+import javax.swing.event.TableModelEvent;
+
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import com.mysql.cj.xdevapi.Statement;
+
+import javax.swing.JScrollPane;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JList;
+
+public class ShowTableI {
+
+	private JFrame frame;
+	private JTable table;
+	private JTable table_1;
+	private JScrollPane scrollPane;
+	private JButton btnNewButton;
+	protected AbstractButton tblData;
+	// protected DefaultTableModel tblData;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ShowTableI window = new ShowTableI();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public ShowTableI() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 14));
+		frame.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		frame.setBounds(100, 100, 553, 429);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JButton btnShow = new JButton("Display Data");
+		btnShow.addActionListener(new ActionListener() {
+			public void actionPerformed (ActionEvent e) {
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/fcbayernplayers","root", "1234");
+					java.sql.Statement st = con.createStatement();
+					String query = "select * from players order by shirtNumber ASC";
+					ResultSet rs = ((java.sql.Statement) st).executeQuery(query);
+					java.sql.ResultSetMetaData rsmd = rs.getMetaData();
+					DefaultTableModel model = (DefaultTableModel) tblData.getModel(); 
+					
+					int cols = rsmd.getColumnCount();
+					String[] colName = new String[cols];   // alternatively vector instead!
+					for(int i=0;i<cols;i++)
+						colName[i] = rsmd.getColumnName(i+1);
+					model.setColumnIdentifiers(colName);
+					String lastName, firstName, shirtNumber;
+					while(rs.next()) {
+						lastName=rs.getString(1);
+						firstName=rs.getString(2);
+						shirtNumber=rs.getString(3);
+						String[] row = {lastName, firstName, shirtNumber};
+						model.addRow(row);
+					}
+					
+					st.close();
+					con.close();
+					
+					
+				} catch (ClassNotFoundException | SQLException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnShow.setBounds(44, 41, 167, 40);
+		btnShow.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		frame.getContentPane().add(btnShow);
+		
+		table = new JTable();
+		table.setBounds(296, 239, 233, -214);
+		frame.getContentPane().add(table);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(264, 46, 248, 220);
+		frame.getContentPane().add(scrollPane);
+		
+		table_1 = new JTable();
+		scrollPane.setViewportView(table_1);
+		
+		btnNewButton = new JButton("Clear");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnNewButton.setBounds(75, 134, 98, 35);
+		frame.getContentPane().add(btnNewButton);
+	}
+}
