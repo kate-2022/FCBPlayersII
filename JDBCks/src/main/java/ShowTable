@@ -1,9 +1,11 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTable;
@@ -17,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.awt.Color;
 
 
 public class ShowTable extends JFrame {
@@ -24,9 +27,7 @@ public class ShowTable extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,15 +45,31 @@ public class ShowTable extends JFrame {
 	 * Create the frame.
 	 */
 	public ShowTable() {
+		setTitle("FCBayern Players 2022/2023");
+		setForeground(new Color(255, 0, 0));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 898, 539);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 0, 0));
+		contentPane.setForeground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+	/*	JLabel label1 = new JLabel();
+		label1.setText("FCB Players 2022");
+		ImageIcon image2= new ImageIcon ("C:\\Users\\Nutzer\\git\\LocalRepository\\PlayersJDBCks\\src\\main\\java\\FCB_ks._small.png");
+		label1.setIcon(image2);
+		
+		JPanel panel1 = new JPanel();
+		panel1.add(label1); */
+		
 		JButton btnShow = new JButton("Display Data");
+		btnShow.setBackground(Color.RED);
+		btnShow.setForeground(Color.WHITE);
+		
+	
 		btnShow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -91,7 +108,7 @@ public class ShowTable extends JFrame {
 		});
 		
 		
-		btnShow.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnShow.setFont(new Font("MV Boli", Font.BOLD, 20));
 		btnShow.setBounds(73, 76, 203, 50);
 		contentPane.add(btnShow);
 		
@@ -102,7 +119,13 @@ public class ShowTable extends JFrame {
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
+		ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\git\\LocalRepository\\PlayersJDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
+		this.setIconImage(image.getImage());
+	//	contentPane.add(panel1);
+		
 		JButton btnReset = new JButton("Clear");
+		btnReset.setBackground(Color.RED);
+		btnReset.setForeground(Color.WHITE);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				table.setModel(new DefaultTableModel());
@@ -110,8 +133,13 @@ public class ShowTable extends JFrame {
 			}
 			
 		});
-		btnReset.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnReset.setFont(new Font("MV Boli", Font.BOLD, 20));
 		btnReset.setBounds(115, 198, 126, 50);
 		contentPane.add(btnReset);
+	}
+
+	private Color newColor(int i, int j, int k) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
