@@ -43,7 +43,7 @@ public class InputGUI extends JFrame implements ActionListener {
 	label1.setIcon(image2);
 	label1.setHorizontalTextPosition(JLabel.CENTER);
 	label1.setVerticalTextPosition(JLabel.TOP);
-    	label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
+    label1.setFont(new Font("MV Boli",Font.PLAIN, 30));
 	label1.setForeground(new Color (255, 0, 0)); 
 	label1.setBackground(Color.blue);            
 	label1.setOpaque(true);	
@@ -63,21 +63,22 @@ public class InputGUI extends JFrame implements ActionListener {
 	button1.setVerticalAlignment(JButton.TOP);
 	button1.setHorizontalAlignment(JButton.CENTER);
 	button1.addActionListener(this);
-	
+
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(750,450);
-	this.setLayout(new BorderLayout());       
+	this.setLayout(new BorderLayout());        
+	    
 	this.setResizable(true);	
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\git\\LocalRepository\\PlayersJDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
 		
- 	this.add(panel1, BorderLayout.NORTH);
-	this.add(panel2, BorderLayout.CENTER);
-	this.add(panel3, BorderLayout.SOUTH);
-    	panel2.add(label1);
-    	panel3.add(button1);
-	this.setVisible(true);
+    this.add(panel1, BorderLayout.NORTH);
+    this.add(panel2, BorderLayout.CENTER);
+    this.add(panel3, BorderLayout.SOUTH);
+    panel2.add(label1);
+    panel3.add(button1);
+	this.setVisible(true);	
 	
 	}
 
