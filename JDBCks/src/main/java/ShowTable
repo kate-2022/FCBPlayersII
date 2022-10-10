@@ -138,8 +138,4 @@ public class ShowTable extends JFrame {
 		contentPane.add(btnReset);
 	}
 
-	private Color newColor(int i, int j, int k) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
