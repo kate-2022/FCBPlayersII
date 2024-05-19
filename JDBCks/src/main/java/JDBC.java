@@ -4,6 +4,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 
+/*Java Database Connectivity
+*
+* 1. import --> java.sql.*;
+* 2. load and register the driver --> com.mysql.cj.jdbc.Driver
+* 3. create connection
+* 4. create a statement
+* 5. execute the query
+* 6. process the results
+* 7. close
+*/
+
+//DAO = data access object
+
 
 public class JDBC {
 	
@@ -51,7 +64,9 @@ public class JDBC {
 	
 		
     //  Statement st = con.createStatement();   // use PreparedStatement instead for inserting/ changing of values!
-	//	ResultSet rs = pst.executeQuery(query);  
+	//	ResultSet rs = pst.executeQuery(query);  // DDL= data definition language: e.g. creating table, changing structure of db), 
+		                                        // DML= data modifying language: changing/deleting/updating a value/row of a table, inserting a new value
+		                                        // DQL= data query language: fetch data from data base xy.executeQuery(query)
 		
 		
 		int count = pst.executeUpdate();    // count = number of rows that are effected                                     

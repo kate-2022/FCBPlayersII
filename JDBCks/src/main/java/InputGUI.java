@@ -37,7 +37,7 @@ public class InputGUI extends JFrame implements ActionListener {
     panel3.setPreferredSize(new Dimension(300, 150));
     
 	JLabel label1 = new JLabel();
-	label1.setText("FCB Players 2022");
+	label1.setText("FCB Players 2024");
 	ImageIcon image2= new ImageIcon ("C:\\Users\\Nutzer\\git\\LocalRepository\\PlayersJDBCks\\src\\main\\java\\FCB_ks._small.png");
 	label1.setBounds(50, 50, 450, 450);
 	label1.setIcon(image2);
@@ -63,12 +63,13 @@ public class InputGUI extends JFrame implements ActionListener {
 	button1.setVerticalAlignment(JButton.TOP);
 	button1.setHorizontalAlignment(JButton.CENTER);
 	button1.addActionListener(this);
-
+	// button1.addActionListener(e -> System.out.println("FCB forever"));   // lambda-expression replacing 
+                                                                         // actionPerformed(ActionEvent e)
 	this.setTitle("FCBayern Players List");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(750,450);
-	this.setLayout(new BorderLayout());        
-	    
+	this.setLayout(new BorderLayout());        // Achtung, "null" unterdr�ckt die Sichtbarkeit eines Labels komplett -> setBounds setzen!!
+	                                        // Default-Layout-Manager: Border-Layout-Manager
 	this.setResizable(true);	
 	ImageIcon image= new ImageIcon("C:\\Users\\Nutzer\\git\\LocalRepository\\PlayersJDBCks\\src\\main\\java\\Vektorgraphik_Immuno.png");
 	this.setIconImage(image.getImage());
@@ -78,7 +79,9 @@ public class InputGUI extends JFrame implements ActionListener {
     this.add(panel3, BorderLayout.SOUTH);
     panel2.add(label1);
     panel3.add(button1);
-	this.setVisible(true);	
+	this.setVisible(true);
+	// this.pack();               // justiert alle Komponenten entsprechend d. Gr�sse des Fensters 
+	                                      // pack() immer zum Schluss einsetzen!
 	
 	}
 

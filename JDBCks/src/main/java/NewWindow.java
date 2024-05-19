@@ -37,7 +37,7 @@ public class NewWindow extends JFrame  implements ActionListener{
 		panel11.setBackground(new Color(255,0,0));
 		panel11.setPreferredSize(new Dimension(300, 250));
 		
-		JLabel label2 = new JLabel("Players 2022/2023");
+		JLabel label2 = new JLabel("Players 2024/2025");
 		label2.setForeground(Color.red);
 		label2.setBackground(Color.blue);
 		label2.setOpaque(true);
